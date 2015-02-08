@@ -12,7 +12,6 @@ def social_search(title):
     comment = None
     for i in range(len(r['items'])):
         comment = r['items'][0]['description'].strip()
-        print(comment)
         if len(comment) > 0:
             break
 

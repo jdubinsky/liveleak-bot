@@ -15,8 +15,10 @@ CREDENTIALS_FILE = "credentials"
 credentials_file = open(CREDENTIALS_FILE, 'r')
 creds = credentials_file.readline()
 username, passwd = creds.strip().split(':')
+print username, passwd
 
-jid = xmpp.protocol.JID(username)
+jid = xmpp.protocol.JID(username + '@' + FB_CHAT_URL)
+print jid.getDomain(), jid.getNode()
 client = xmpp.Client(jid.getDomain(), debug=[])
 
 def sanitize(s):
